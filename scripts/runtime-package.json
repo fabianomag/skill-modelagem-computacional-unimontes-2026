@@ -1,0 +1,11 @@
+{
+  "name": "modelagem-computacional-runtime",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": ">=20.19.0" },
+  "dependencies": {
+    "marked": "17.0.5",
+    "pdf-lib": "1.17.1",
+    "playwright": "1.62.1"
+  }
+}

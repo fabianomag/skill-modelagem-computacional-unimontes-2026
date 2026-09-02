@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "project": {
+    "id": "substituir-id",
+    "title": "Substituir título",
+    "package_root": "/caminho/Exercício Grupo",
+    "build_root": "/caminho/.modelagem-build/substituir-id"
+  },
+  "source": {
+    "role": "reference",
+    "original_path": "/caminho/enunciado-original.pdf",
+    "original_sha256": "",
+    "extracted_markdown_path": "/caminho/.modelagem-build/substituir-id/enunciado.md",
+    "copy_original_to_package": false,
+    "data_sources": []
+  },
+  "team": [],
+  "problem": {
+    "statement_markdown": "Substituir pela cópia fiel do problema.",
+    "inputs": [],
+    "outputs": [],
+    "domain": "Não informado",
+    "questions": [],
+    "question_units": []
+  },
+  "review_gate": {
+    "mode": "direct",
+    "status": "pending",
+    "matrix_sha256": null,
+    "approved_at": null
+  },
+  "guide": {
+    "sections": [
+      {"id": "G00", "title": "Problema, dados e foco", "kind": "reprise"}
+    ],
+    "glossary_terms": []
+  },
+  "facts": [],
+  "blocks": [],
+  "slides": [],
+  "delivery": {
+    "duration": {"max_seconds": 600, "source": "assumed"},
+    "code": {
+      "rubric": "not_stated",
+      "reproducibility": "not_required",
+      "include": false,
+      "evidence": "O enunciado ainda deve ser conferido.",
+      "external_dependencies": []
+    },
+    "zip": {"requested": false},
+    "presentation_pdf": true
+  },
+  "artifacts": {
+    "report": {
+      "source_docx": "Entregaveis/Relatorio/relatorio-editavel.docx",
+      "pdf": "Entregaveis/Relatorio/relatorio-final.pdf",
+      "required_fact_ids": []
+    },
+    "presentation": {
+      "html_entry": "Entregaveis/Apresentacao/index.html",
+      "pdf": "Entregaveis/Apresentacao/apresentacao.pdf",
+      "source_bundle": [
+        "Entregaveis/Apresentacao/index.html",
+        "Entregaveis/Apresentacao/styles.css",
+        "Entregaveis/Apresentacao/deck.js",
+        "Entregaveis/Apresentacao/deck-data.js",
+        "Entregaveis/Apresentacao/presenter.html"
+      ]
+    },
+    "study_guide": {
+      "pdf": "Material de Estudo/01-guia-central-do-problema.pdf"
+    },
+    "minutes": []
+  },
+  "provenance": {
+    "report_source_sha256_at_pdf_generation": null,
+    "presentation_bundle_sha256_at_pdf_generation": null,
+    "generated_pdf_sha256": {},
+    "study_sources": {}
+  }
+}

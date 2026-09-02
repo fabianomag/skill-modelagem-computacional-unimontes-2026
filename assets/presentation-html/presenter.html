@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modo apresentador</title>
+  <style>
+    :root { font-family: Inter, Aptos, Arial, sans-serif; color: #f7f6f1; background: #141414; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 24px; }
+    .grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 24px; }
+    iframe { width: 100%; aspect-ratio: 16 / 9; border: 1px solid #555; background: #fff; }
+    aside { display: flex; flex-direction: column; gap: 18px; }
+    .meta { display: flex; justify-content: space-between; color: #ffd400; font-weight: 800; }
+    .notes { min-height: 230px; padding: 20px; background: #242424; font-size: 18px; line-height: 1.5; white-space: pre-wrap; }
+    .detail { padding: 14px 16px; border-left: 4px solid #ffd400; background: #202020; line-height: 1.45; }
+    .detail b { display: block; margin-bottom: 4px; color: #ffd400; }
+    .timer { font-size: 48px; font-variant-numeric: tabular-nums; }
+    button { padding: 12px 16px; border: 0; background: #ffd400; color: #141414; font: inherit; font-weight: 800; cursor: pointer; }
+    .controls { display: flex; gap: 10px; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <iframe id="deck" src="index.html?embed=1#1" title="Slide atual"></iframe>
+    <aside>
+      <div class="meta"><span id="owner">—</span><span id="slide-number">01/01</span></div>
+      <div class="meta"><span id="slide-time">Tempo do slide: —</span><span id="next-owner">Próximo: —</span></div>
+      <div class="notes" id="notes">Notas do slide.</div>
+      <div class="detail"><b>Transição</b><span id="transition">—</span></div>
+      <div class="detail"><b>Fontes</b><span id="sources">—</span></div>
+      <div class="timer" id="timer">00:00</div>
+      <div class="controls">
+        <button data-command="previous">Anterior</button>
+        <button data-command="next">Próximo</button>
+        <button id="timer-toggle">Iniciar/pausar</button>
+        <button id="timer-reset">Zerar</button>
+      </div>
+    </aside>
+  </div>
+  <script src="deck-data.js"></script>
+  <script>
+    const deckFrame = document.getElementById('deck');
+    const meta = window.MODELAGEM_DECK || { slides: [], durationSeconds: 600 };
+    let elapsed = 0;
+    let running = false;
+    let lastTick = 0;
+
+    function send(command) {
+      deckFrame.contentWindow?.postMessage({ type: 'modelagem-presenter-command', command }, '*');
+      window.opener?.postMessage({ type: 'modelagem-presenter-command', command }, '*');
+    }
+    document.querySelectorAll('[data-command]').forEach((button) => button.addEventListener('click', () => send(button.dataset.command)));
+
+    window.addEventListener('message', (event) => {
+      const state = event.data || {};
+      if (state.type !== 'modelagem-deck-state') return;
+      const slide = meta.slides.find((item) => item.id === state.slideId) || {};
+      document.getElementById('slide-number').textContent = `${String(state.current + 1).padStart(2, '0')}/${String(state.count).padStart(2, '0')}`;
+      document.getElementById('owner').textContent = slide.ownerName || state.ownerBlockId || '—';
+      document.getElementById('notes').textContent = slide.notes || 'Sem notas.';
+      document.getElementById('slide-time').textContent = `Tempo do slide: ${slide.seconds || 0}s`;
+      const next = meta.slides[state.current + 1];
+      document.getElementById('next-owner').textContent = next ? `Próximo: ${next.ownerName} · ${next.title}` : 'Próximo: encerramento';
+      document.getElementById('transition').textContent = slide.transition || 'Sem transição registrada.';
+      document.getElementById('sources').textContent = (slide.sources || []).join(' · ') || 'Sem fonte externa.';
+      if (deckFrame.contentWindow !== event.source) deckFrame.src = `index.html?embed=1#${state.current + 1}`;
+    });
+
+    function renderTimer() {
+      const total = Math.floor(elapsed / 1000);
+      const minutes = String(Math.floor(total / 60)).padStart(2, '0');
+      const seconds = String(total % 60).padStart(2, '0');
+      const timer = document.getElementById('timer');
+      timer.textContent = `${minutes}:${seconds}`;
+      timer.style.color = total > meta.durationSeconds ? '#ff6b6b' : '#f7f6f1';
+    }
+    function tick(timestamp) {
+      if (running) {
+        if (lastTick) elapsed += timestamp - lastTick;
+        lastTick = timestamp;
+        renderTimer();
+      }
+      requestAnimationFrame(tick);
+    }
+    document.getElementById('timer-toggle').addEventListener('click', () => { running = !running; lastTick = 0; });
+    document.getElementById('timer-reset').addEventListener('click', () => { elapsed = 0; running = false; lastTick = 0; renderTimer(); });
+    window.opener?.postMessage({ type: 'modelagem-presenter-ready' }, '*');
+    requestAnimationFrame(tick);
+  </script>
+</body>
+</html>

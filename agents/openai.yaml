@@ -1,0 +1,4 @@
+interface:
+  display_name: "Modelagem Computacional — Grupo"
+  short_description: "Gera relatório, slides, guia e minutas do grupo"
+  default_prompt: "Use $modelagem-computacional-grupo com a referência, os dados e a equipe deste pedido; organize cinco tópicos e gere o pacote completo sem pausa para aprovar a matriz."
