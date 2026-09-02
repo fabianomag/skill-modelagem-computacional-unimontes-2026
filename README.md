@@ -33,44 +33,81 @@ indispensáveis faltantes serão informados.
 
 ## Prompt de uso
 
-```Use $modelagem-computacional-grupo para resolver este trabalho e gerar diretamente o pacote completo.
+```
+==================================================================================================================================================================
+PASTA LOCAL DA SKILL:
+[cole o path da pasta instalada aqui, no computador que executará o trabalho]
+==================================================================================================================================================================
+
+Leia o SKILL.md dessa pasta e use a skill modelagem-computacional-grupo, incluindo suas referências, templates, assets e scripts, para resolver o trabalho fornecido e gerar o pacote completo.
+
+REGRA CENTRAL
+Este pedido é independente de exercícios anteriores. Extraia dos documentos e dados atuais o problema, os objetivos, os métodos, os procedimentos e os critérios de avaliação.
+
+Use a skill para organizar os materiais, aplicar a didática e verificar as entregas. Não imponha modelos, métricas, etapas ou conclusões de exemplos anteriores.
+
+Roteiros temáticos presentes na skill e nos templates são referências adaptáveis, não requisitos universais. Esta orientação prevalece sobre qualquer roteiro técnico fixo desses materiais.
 
 ENTRADAS
-- PDF anexo: referência do procedimento e dos requisitos.
-- Dados anexos: dados que devem ser usados neste trabalho.
-Não confunda os números do exemplo com os nossos dados. Identifique corretamente dados sintéticos, quando for o caso, e não invente valores ausentes.
+Identifique quais arquivos contêm:
+- o enunciado e os requisitos;
+- exemplos ou orientações;
+- os dados que devem ser utilizados.
 
-CONTEXTO DESTA ATIVIDADE
-Disciplina: Modelagem Computacional — PPGMCS.
-Embora o PDF diga que a apresentação é opcional, nesta atividade ela é OBRIGATÓRIA.
-Use dez minutos somente se não houver duração oficial informada.
+Não confunda dados ilustrativos com os dados do trabalho. Preserve os originais, identifique dados sintéticos e não invente valores ou resultados. Peça esclarecimento somente quando faltar informação indispensável ou houver conflito que impeça a execução correta.
 
-EQUIPE E PREFERÊNCIAS DE DISTRIBUIÇÃO
-- Larissa Vasconcelos: introdução, contexto, dados e abordagem inicial.
-- Iara Silva: desenvolvimento técnico e ajuste dos modelos.
-- Anderson Lacerda: cálculo, interpretação e comparação das métricas.
-- Fabiano Magalhães: diagnóstico dos resíduos, complexidade e justificativa da escolha.
-- Rita Torres: aplicação do resultado, estimativa e encerramento; preservar a parte tecnicamente mais simples.
+EQUIPE E DISTRIBUIÇÃO
+Para distribuir os cinco tópicos, considere a sequência abaixo em ordem decrescente de complexidade técnica. Não coloque rótulos de dificuldade ao lado dos nomes na listagem da equipe.
 
-Adapte esses papéis ao novo problema, sem reutilizar números antigos de perguntas ou slides.
+1. Fabiano Magalhães
+2. Larissa Vasconcelos
+3. Anderson Lacerda
+4. Iara Silva
+5. Rita Torres
 
-Organize exatamente cinco tópicos coesos. Se houver menos perguntas, divida as mais densas por fronteiras conceituais claras. Se houver mais, agrupe as relacionadas. Sem perguntas enumeradas, derive tópicos do objetivo do trabalho e identifique-os como organização proposta.
+Essa sequência orienta a distribuição dos tópicos, não a ordem das falas. A apresentação deve seguir a lógica do problema.
 
-Não pare para aprovar a matriz. Faça a organização internamente e informe a divisão na conversa ao concluir. Cada slide terá apenas um apresentador.
+Os assuntos de cada pessoa devem ser definidos a partir do novo enunciado, sem reutilizar a divisão temática de exercícios anteriores.
+
+DIVISÃO DO TRABALHO
+Organize exatamente cinco tópicos coesos, um por integrante, independentemente da quantidade de perguntas.
+
+Agrupe perguntas relacionadas ou divida perguntas densas por fronteiras conceituais claras. Sem perguntas enumeradas, derive tópicos dos objetivos do trabalho e identifique essa organização como proposta.
+
+Não reutilize assuntos ou números de slides de exercícios anteriores. Cada slide terá um único apresentador.
+
+Faça a matriz internamente e prossiga sem solicitar aprovação. Ao concluir, informe na conversa a divisão, os slides e as notas de dificuldade e relevância.
 
 ENTREGAS
+Na pasta indicada para este trabalho, gere:
 1. Relatório acadêmico pragmático: DOCX editável e PDF.
 2. Apresentação: HTML com recursos locais e PDF correspondente.
 3. Guia central do relatório e da apresentação: PDF.
 4. Para cada integrante: minuta de entendimento e minuta de apresentação, ambas em PDF.
 
-O guia deve permitir estudar sem ler o relatório em paralelo. As minutas de entendimento derivam do guia; as de apresentação explicam os slides exclusivos de cada pessoa.
+Inclua código quando exigido ou necessário à reprodução dos resultados.
 
-Preserve o padrão didático e os glossários da skill. No topo de ambas as minutas, informe pessoa, tópico, dificuldade técnica x/10 e relevância para a apresentação y/10.
+DIDÁTICA
+O guia é o material principal de estudo e deve permitir entender o relatório e os slides sem consultar o relatório em paralelo.
 
-Confira cálculos, coerência entre materiais, fórmulas e aparência dos PDFs. Inclua código somente quando necessário. Não entregue arquivos intermediários nem guias redundantes.
+Explique conceitos antes das fórmulas, significado dos símbolos, origem dos valores, ligação entre etapas e limites das conclusões. Compare métodos somente quando essa comparação ajudar no problema atual.
 
-Gere tudo em uma pasta nova deste trabalho, sem alterar materiais anteriores.
+As minutas de entendimento derivam das seções do guia e incluem resumo do problema, perguntas atribuídas, seções para aprofundamento e glossário local.
 
-Verifique as dependências do ambiente. Não instale nada globalmente; se faltar algo indispensável, informe e peça somente a autorização necessária. Fora disso, prossiga até concluir os arquivos.
+As minutas de apresentação explicam os slides exclusivos da pessoa, com fala sugerida, leitura dos elementos visuais, tempo e transição.
+
+No topo das duas minutas, informe pessoa, tópico, dificuldade técnica x/10 e relevância para a apresentação y/10, com justificativas curtas. Dificuldade e relevância são avaliações diferentes.
+
+ORIENTAÇÕES DESTA EQUIPE
+A apresentação é obrigatória.
+Use dez minutos somente se não houver duração oficial informada.
+
+EXECUÇÃO E VERIFICAÇÃO
+Execute os procedimentos necessários e confira os resultados antes de redigir as conclusões. Não apresente resultados esperados ou simulados como resultados efetivamente obtidos.
+
+Mantenha números e terminologia consistentes entre todos os materiais. Confira visualmente os PDFs e regenere-os após alterações nas fontes.
+
+Não altere trabalhos anteriores nem entregue arquivos intermediários ou materiais redundantes.
+
+Verifique as dependências do ambiente. Não instale nada globalmente; peça somente as autorizações técnicas indispensáveis. Fora desses impedimentos, prossiga até concluir os arquivos.
 ```
